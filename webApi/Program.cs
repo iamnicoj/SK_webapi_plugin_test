@@ -1,22 +1,7 @@
-using System.IO;
-using Chatbot.Api;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Plugins.Core;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Retrieve the connection string
-string connectionString = builder.Configuration.GetConnectionString("AppConfig");
-
-// Load configuration from Azure App Configuration
-builder.Configuration.AddAzureAppConfiguration(connectionString);
 
 // Bind configuration "chatbot:Settings" section to the Settings object
 builder.Services.Configure<AzureOpenAIOptions>(builder.Configuration.GetSection("chatbot:Settings"));

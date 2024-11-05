@@ -58,7 +58,6 @@ public class ChatbotController : ControllerBase
             PromptExecutionSettings executionSettings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
             #pragma warning restore SKEXP0001
 
-            this._kernel.Plugins.Clear();
             var chatCompletionService = this._kernel.GetRequiredService<IChatCompletionService>();
 
             var result = await chatCompletionService.GetChatMessageContentAsync(chatHistory, executionSettings, kernel: this._kernel);
