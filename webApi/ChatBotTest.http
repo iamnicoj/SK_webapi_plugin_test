@@ -1,0 +1,22 @@
+GET http://localhost:5178/Chatbot/ HTTP/1.1
+content-type: application/json
+
+
+###
+
+POST http://localhost:5178/Chatbot/chat-completion HTTP/1.1
+content-type: application/json
+
+{
+    "request": [
+        {
+            "Role": "assistant",
+            "Message": "i am a useful assistance."
+        },
+        {
+            "Role": "user",
+            "Message": "What is the current time in New York?"
+        }
+    ]
+}
+
